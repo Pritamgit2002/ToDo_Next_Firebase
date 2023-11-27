@@ -10,7 +10,12 @@ import { IoIosRadioButtonOn } from "react-icons/io";
 
 import { useToast } from "@/components/ui/use-toast";
 import { BiSolidToggleLeft, BiSolidToggleRight } from "react-icons/bi";
-
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 const TodoList = () => {
   const [todos, setTodos] = React.useState([]);
 
@@ -60,22 +65,31 @@ const TodoList = () => {
       {todos &&
         todos.map((todo) => (
           <div
-            className={` bg-gray-900  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-30 border-4 flex flex-col justify-between w-72 sm:w-96 h-60 sm:h-72 rounded-2xl shadow-md  ${
+            className={` bg-gray-900  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-30 border-y-4 flex flex-col justify-between w-72 sm:w-96 h-60 sm:h-72 rounded-2xl shadow-lg  ${
               todo.status == "Pending⌛"
-                ? "border-red-400 shadow--300"
-                : "border-green-400 shadow--300"
+                ? "border-red-400 shadow-red-300"
+                : "border-green-400 shadow-green-300"
             }`}
           >
             <div className="w-full   300 flex items-center justify-between border-b-2 px-4  border-black py-3 rounded-t-2xl  bg-neutral-800 ">
               <span className="text-4xl text-white font-semibold whitespace-normal h-max w-max overflow-auto ">
                 {todo.title}
               </span>
-              <div
-                onClick={() => handleTodoDelete(todo.id)}
-                className="text-2xl px-1 text-red-500 cursor-pointer duration-300 sticky  active:text-xl"
-              >
-                <FaTrash />
-              </div>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div
+                      onClick={() => handleTodoDelete(todo.id)}
+                      className="text-2xl px-1 text-red-500 cursor-pointer duration-300 sticky  active:text-xl"
+                    >
+                      <FaTrash />
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent className="bg-black border-none rounded-xl p-3 text-xl font-semibold text-red-400">
+                    <p>Delete Todo</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </div>
 
             <span className="text-xl px-2 pt-3 text-neutral-200 overflow-y-scroll">
@@ -85,7 +99,7 @@ const TodoList = () => {
             <div className="border-t-2 bg-neutral-800 py-2 rounded-b-2xl border-black flex items-center justify-center">
               <div
                 onClick={() => handleToggle(todo.id, todo.status)}
-                className="flex   gap-2  text-2xl items-center justify-between border-black text-white   300 w-44 mx-auto  "
+                className="flex gap-2 text-2xl items-center justify-between border-black text-white 300 w-44 mx-auto  "
               >
                 {todo.status == "Pending⌛" ? (
                   <div className="text-red-400 text-xl">

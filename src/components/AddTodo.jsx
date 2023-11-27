@@ -7,6 +7,12 @@ import useAuth from "../hooks/useAuth";
 import { useToast } from "@/components/ui/use-toast";
 import { addTodo } from "../api/todo";
 import { Hourglass, Plus } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 const AddTodo = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -72,13 +78,24 @@ const AddTodo = () => {
           </option>
         </select>
 
-        <button
-          onClick={() => handleTodoCreate()}
-          disabled={title.length < 1 || description.length < 1 || isLoading}
-          className="bg-green-500 px-4  py-3 text-xl hover:scale-110 duration-150 ease-in text-white font-semibold rounded-2xl cursor-pointer"
-        >
-          <Plus />
-        </button>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div
+                onClick={() => handleTodoCreate()}
+                disabled={
+                  title.length < 1 || description.length < 1 || isLoading
+                }
+                className="bg-black  px-4  py-3 text-3xl hover:scale-110 duration-150 ease-in text-green-400 font-bold rounded-2xl cursor-pointer"
+              >
+                <Plus />
+              </div>
+            </TooltipTrigger>
+            <TooltipContent className="bg-black border-none rounded-xl p-3 text-xl font-semibold text-green-400">
+              <p>Add Todo</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </div>
     </div>
   );
