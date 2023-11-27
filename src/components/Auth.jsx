@@ -1,16 +1,19 @@
 import React from "react";
-import { Box, Button, Link, Text, useColorMode } from "@chakra-ui/react";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { FaGoogle, FaMoon, FaSun } from "react-icons/fa";
 import { auth } from "../firebase";
 import useAuth from "../hooks/useAuth";
-import { ClassNames } from "@emotion/react";
 import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
 import { LogOut } from "lucide-react";
-
+import Link from "next/link";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 const Auth = () => {
-  const { toggleColorMode, colorMode } = useColorMode();
   const { isLoggedIn, user } = useAuth();
 
   const handleAuth = async () => {
@@ -57,13 +60,21 @@ const Auth = () => {
               className=" w-10 sm:w-12 h-10 sm:h-12 rounded-full border-[3px] border-gray-400 object-cover"
             />
           </div>
-          <Link
-            color="red.500"
-            onClick={() => auth.signOut()}
-            className="px-4 py-3 text-white rounded-xl bg-red-500 hover:scale-110 duration-150 ease-in text-xl font-semibold cursor-pointer "
-          >
-            <LogOut />
-          </Link>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div
+                  onClick={() => auth.signOut()}
+                  className="px-4 py-3 bg-black text-red-400 rounded-xl hover:scale-110 duration-150 ease-in text-3xl font-bold cursor-pointer "
+                >
+                  <LogOut />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent className="bg-black border-none rounded-xl p-3 text-xl font-semibold text-red-400">
+                <p>Logout</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </div>
       )}
       {!isLoggedIn && (

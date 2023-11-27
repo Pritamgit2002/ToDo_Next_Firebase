@@ -16,13 +16,11 @@ export default function Home() {
   return (
     <div className="h-screen  w-full bg-black  flex justify-center  ">
       <Image
-        src={
-          "https://images.pexels.com/photos/11911068/pexels-photo-11911068.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        }
+        src="/pro1.png"
         alt="done"
         width={2000}
         height={2000}
-        className="w-full h-full opacity-40 object-cover absolute overflow-hidden"
+        className="w-full h-full opacity-20 object-cover absolute overflow-hidden"
       />
       {isLoggedIn ? (
         <div className=" items-start w-full relative ">
