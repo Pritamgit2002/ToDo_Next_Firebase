@@ -9,7 +9,7 @@ import { addTodo } from "../api/todo";
 const AddTodo = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("Completed ✅");
+  const [status, setStatus] = useState("Completed✅");
   const [isLoading, setIsLoading] = useState(false);
 
   const { toast } = useToast();
