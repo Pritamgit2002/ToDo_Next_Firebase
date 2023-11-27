@@ -7,8 +7,8 @@ import { deleteTodo, toggleTodoStatus } from "../api/todo";
 import "./style.css";
 import { ToastAction } from "@/components/ui/toast";
 import { IoIosRadioButtonOn } from "react-icons/io";
-
 import { useToast } from "@/components/ui/use-toast";
+
 import { BiSolidToggleLeft, BiSolidToggleRight } from "react-icons/bi";
 import {
   Tooltip,
