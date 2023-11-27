@@ -6,6 +6,7 @@ import React from "react";
 import useAuth from "../hooks/useAuth";
 import { useToast } from "@/components/ui/use-toast";
 import { addTodo } from "../api/todo";
+import { Hourglass, Plus } from "lucide-react";
 const AddTodo = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -42,7 +43,7 @@ const AddTodo = () => {
   };
 
   return (
-    <div className="bg--400 flex flex-col sm:w-[550px] gap-y-4 mt-4 items-center ">
+    <div className="  400 flex flex-col sm:w-[550px] gap-y-4 mt-4 items-center ">
       <input
         placeholder="Title"
         value={title}
@@ -63,7 +64,7 @@ const AddTodo = () => {
           onChange={(e) => setStatus(e.target.value)}
           className="sm:w-[200px] sm:text-xl rounded-xl p-3"
         >
-          <option value={"Pending⌛"} className="rounded-lg">
+          <option value={"Pending⌛"} className="rounded-lg text-black">
             Pending⌛
           </option>
           <option value={"Completed✅"} className="rounded-lg">
@@ -74,9 +75,9 @@ const AddTodo = () => {
         <button
           onClick={() => handleTodoCreate()}
           disabled={title.length < 1 || description.length < 1 || isLoading}
-          className="bg-green-400 px-8  py-2 text-xl hover:scale-110 duration-150 ease-in text-white font-semibold rounded-2xl cursor-pointer"
+          className="bg-green-500 px-4  py-3 text-xl hover:scale-110 duration-150 ease-in text-white font-semibold rounded-2xl cursor-pointer"
         >
-          Add
+          <Plus />
         </button>
       </div>
     </div>

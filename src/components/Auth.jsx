@@ -7,6 +7,7 @@ import useAuth from "../hooks/useAuth";
 import { ClassNames } from "@emotion/react";
 import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
+import { LogOut } from "lucide-react";
 
 const Auth = () => {
   const { toggleColorMode, colorMode } = useColorMode();
@@ -59,9 +60,9 @@ const Auth = () => {
           <Link
             color="red.500"
             onClick={() => auth.signOut()}
-            className="p-2 text-white rounded-xl bg-red-400 hover:scale-110 duration-150 ease-in text-xl font-semibold cursor-pointer "
+            className="px-4 py-3 text-white rounded-xl bg-red-500 hover:scale-110 duration-150 ease-in text-xl font-semibold cursor-pointer "
           >
-            Logout
+            <LogOut />
           </Link>
         </div>
       )}

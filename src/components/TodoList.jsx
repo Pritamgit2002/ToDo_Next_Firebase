@@ -55,37 +55,37 @@ const TodoList = () => {
   return (
     <div
       className="flex items-center justify-center gap-16 w-full sm:w-[500px] overflow-auto sm:overflow-y-scroll 
-    h-[580px] sm:h-screen  bg--200 flex-wrap p-4 border-t-2 bg--400 sm:border-none border-black"
+    h-[580px] sm:h-screen    200 flex-wrap p-4 border-t-2   400 sm:border-none border-black"
     >
       {todos &&
         todos.map((todo) => (
           <div
-            className={` bg-gray-900  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-30 border-4 flex flex-col justify-between w-72 sm:w-96 h-60 sm:h-64 rounded-2xl shadow-md  py-2 ${
+            className={` bg-gray-900  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-30 border-4 flex flex-col justify-between w-72 sm:w-96 h-60 sm:h-72 rounded-2xl shadow-md  ${
               todo.status == "Pending⌛"
                 ? "border-red-400 shadow-red-300"
                 : "border-green-400 shadow-green-300"
             }`}
           >
-            <div className="w-full bg--300 flex items-center justify-between border-b-2 py-2 px-4  border-black ">
-              <span className="text-4xl text-white font-semibold whitespace-normal h-max w-max  ">
+            <div className="w-full   300 flex items-center justify-between border-b-2 px-4  border-black py-3 rounded-t-2xl  bg-neutral-800 ">
+              <span className="text-4xl text-white font-semibold whitespace-normal h-max w-max overflow-auto ">
                 {todo.title}
               </span>
               <div
                 onClick={() => handleTodoDelete(todo.id)}
-                className="text-2xl text-red-500 cursor-pointer duration-300 sticky  active:text-xl"
+                className="text-2xl px-1 text-red-500 cursor-pointer duration-300 sticky  active:text-xl"
               >
                 <FaTrash />
               </div>
             </div>
 
-            <span className="text-xl pl-3 text-neutral-200">
+            <span className="text-xl px-2 pt-3 text-neutral-200 overflow-y-scroll">
               {todo.description}
             </span>
 
-            <div className="border-t-2 border-black flex items-center justify-center">
+            <div className="border-t-2 bg-neutral-800 py-2 rounded-b-2xl border-black flex items-center justify-center">
               <div
                 onClick={() => handleToggle(todo.id, todo.status)}
-                className="flex  gap-2  text-2xl items-center justify-between border-black text-white bg--300 w-44 mx-auto  "
+                className="flex  gap-2  text-2xl items-center justify-between border-black text-white   300 w-44 mx-auto  "
               >
                 {todo.status == "Pending⌛" ? (
                   <div className="text-red-400 text-xl">
