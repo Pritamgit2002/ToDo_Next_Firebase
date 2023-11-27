@@ -62,8 +62,8 @@ const TodoList = () => {
           <div
             className={` bg-gray-900  bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-30 border-4 flex flex-col justify-between w-72 sm:w-96 h-60 sm:h-72 rounded-2xl shadow-md  ${
               todo.status == "Pending⌛"
-                ? "border-red-400 shadow-red-300"
-                : "border-green-400 shadow-green-300"
+                ? "border-red-400 shadow--300"
+                : "border-green-400 shadow--300"
             }`}
           >
             <div className="w-full   300 flex items-center justify-between border-b-2 px-4  border-black py-3 rounded-t-2xl  bg-neutral-800 ">
@@ -85,7 +85,7 @@ const TodoList = () => {
             <div className="border-t-2 bg-neutral-800 py-2 rounded-b-2xl border-black flex items-center justify-center">
               <div
                 onClick={() => handleToggle(todo.id, todo.status)}
-                className="flex  gap-2  text-2xl items-center justify-between border-black text-white   300 w-44 mx-auto  "
+                className="flex   gap-2  text-2xl items-center justify-between border-black text-white   300 w-44 mx-auto  "
               >
                 {todo.status == "Pending⌛" ? (
                   <div className="text-red-400 text-xl">
@@ -96,7 +96,9 @@ const TodoList = () => {
                     <IoIosRadioButtonOn />
                   </div>
                 )}
-                <span className="text-white ">{todo.status}</span>
+                <div className="flex w-96 gap-3 items-center">
+                  <span className="text-white ">{todo.status}</span>
+                </div>
               </div>
             </div>
           </div>

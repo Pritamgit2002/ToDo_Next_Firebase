@@ -47,7 +47,7 @@ export default function Home() {
           >
             ToDo List
           </div>
-          <div className="p-5 h-20 sm:h-28 rounded-2xl bg-neutral-950 w-max text-white border-2 absolute inset-0 mx-auto my-auto  border-blue-400 flex items-center justify-center hover:shadow-lg shadow-neutral-100 hover:scale-105 duration-150 ease-linear ">
+          <div className="p-5 h-20 sm:h-28 rounded-2xl bg-neutral-950 w-max text-white border-2 absolute inset-0 mx-auto my-auto border-blue-400 flex items-center justify-center hover:shadow-lg shadow-neutral-100 hover:scale-105 duration-150 ease-linear ">
             <Auth />
           </div>
           <div className="text-red-400 text-xl font-semibold">
