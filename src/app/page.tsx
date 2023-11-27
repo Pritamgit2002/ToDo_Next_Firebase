@@ -40,7 +40,7 @@ export default function Home() {
       ) : (
         <div className="flex flex-col items-center justify-between  gap-y-8">
           <div
-            className=" text-neutral-200 underline p-3 text-[100px] sm:text-[120px] tracking-wider "
+            className=" text-neutral-100 underline p-3 text-[100px] sm:text-[120px] tracking-wider "
             style={title.style}
           >
             ToDo List
