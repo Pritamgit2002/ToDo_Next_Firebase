@@ -60,7 +60,7 @@ const TodoList = () => {
   return (
     <div
       className="flex items-center justify-center gap-16 w-full sm:w-[500px] overflow-auto sm:overflow-y-scroll 
-    h-[580px] sm:h-screen    200 flex-wrap p-4 border-t-2   400 sm:border-none border-black"
+    h-[580px] sm:h-screen 200 flex-wrap p-4 border-t-2   400 sm:border-none border-black"
     >
       {todos &&
         todos.map((todo) => (
@@ -92,7 +92,7 @@ const TodoList = () => {
               </TooltipProvider>
             </div>
 
-            <span className="text-xl px-2 pt-3 text-neutral-200 overflow-y-scroll">
+            <span className="text-xl px-2 pt-3 h-full text-neutral-200 overflow-y-scroll">
               {todo.description}
             </span>
 
@@ -102,11 +102,11 @@ const TodoList = () => {
                 className="flex gap-2 text-2xl items-center justify-between border-black text-white 300 w-44 mx-auto  "
               >
                 {todo.status == "Pending⌛" ? (
-                  <div className="text-red-400 text-xl">
+                  <div className="text-red-400 text-xl duration-150 active:scale-0">
                     <IoIosRadioButtonOn />
                   </div>
                 ) : (
-                  <div className="text-green-400 text-xl">
+                  <div className="text-green-400 text-xl  duration-150 active:scale-0">
                     <IoIosRadioButtonOn />
                   </div>
                 )}

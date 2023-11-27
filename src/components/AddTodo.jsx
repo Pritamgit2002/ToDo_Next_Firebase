@@ -86,7 +86,11 @@ const AddTodo = () => {
                 disabled={
                   title.length < 1 || description.length < 1 || isLoading
                 }
-                className="bg-black  px-4  py-3 text-3xl hover:scale-110 duration-150 ease-in text-green-400 font-bold rounded-2xl cursor-pointer"
+                className={`bg-black  px-4  py-3 text-3xl hover:scale-110 duration-150 ease-in text-green-400 font-bold rounded-2xl  ${
+                  title.length < 1 || description.length < 1
+                    ? "pointer-events-none opacity-50	 cursor-not-allowed"
+                    : "cursor-pointer"
+                } `}
               >
                 <Plus />
               </div>
